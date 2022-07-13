@@ -12,7 +12,7 @@ config :app,
 
 # Configures the endpoint
 config :app, AppWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   secret_key_base: "/dFtq9nub4hRMOK5Bbaqvrw6yglP5P5qS3aZXqUv+rizrkA4lSItOpIwGOboSeOt",
   render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: App.PubSub,
