@@ -2,10 +2,11 @@ use Mix.Config
 
 # Configure your database
 config :app, App.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "app_dev",
-  hostname: "localhost",
+  username: System.get_env("POSTGRESQL_ADDON_USER"),
+  password: System.get_env("POSTGRESQL_ADDON_PASSWORD"),
+  database: System.get_env("POSTGRESQL_ADDON_DB"),
+  hostname: System.get_env("POSTGRESQL_ADDON_HOST"),
+  port: System.get_env("POSTGRESQL_ADDON_PORT"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -16,7 +17,7 @@ config :app, App.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :app, AppWeb.Endpoint,
-  http: [port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 8080],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
